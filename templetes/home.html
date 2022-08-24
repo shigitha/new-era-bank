@@ -220,41 +220,6 @@
       </div>
     </section>
 
-    <section class="site-section testimonial-wrap" id="login-section" data-aos="fade">
-      <div class="container">
-        <div class="row mb-2">
-          <div class="col-12 text-center">
-            <h2 class="section-title mb-2">Login</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="imgcontainer">
-
-    <img src="{% static 'images/avatar2.png'%}" alt="Avatar" class="avatar">
-  </div>
-      <form action="{% url 'credentials:login'%}" method="post">
-    {% csrf_token %}
-    <div class="container">
-<!--        <label for="uname"><b>Username</b></label>-->
-        <input type="text" placeholder="Enter Username" name="username" required>
-
-<!--        <label for="psw"><b>Password</b></label>-->
-        <input type="password" placeholder="Enter Password" name="password" required>
-
-         <button class="btn-log type="submit" class="btn-log">Login</button>
-    <label>
-      <a href="{% url 'credentials:register'%}">Click to Register..</a>
-    </label>
-  </div>
-
-  <div class="container" style="background-color:#f1f1f1">
-    <button type="button" class="cancelbtn">Cancel</button>
-    <span class="psw">Forgot <a href="#">password?</a></span>
-  </div>
-</form>
-    </section>
-
     <section class="site-section bg-light" id="pricing-section">
       <div class="container">
         <div class="row mb-5">
