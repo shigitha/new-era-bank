@@ -1,0 +1,41 @@
+{% extends 'cred_base.html'%}
+  {% load static %}
+  {% block content %}
+<div>
+    <div>
+      <div class="register">
+
+    </div>
+        <div class="text-center"><h2>
+        {% for message in messages %}
+        {{message}}
+        {%endfor%}
+        </h2>
+        </div>
+    </div>
+
+    <div class="container">
+      <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Register</h2>
+          </div>
+        </div>
+</div>
+        <form action="{% url 'credentials:register'%}"  method="post" enctype="multipart/form-data" >
+         {% csrf_token %}
+     <div class="container">
+             <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="psw"><b>Password</b></label>
+             <input type="password" placeholder="Enter Password" name="password" required>
+
+          <label for="psw"><b>ConfirmPassword</b></label>
+           <input type="password" placeholder="Enter Password" name="cpassword" required>
+
+             <button type="submit" class="btn-log btn btn-warning">Submit</button>
+     </div>
+    </form>
+
+</div>
+    {% endblock %}

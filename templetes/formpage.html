@@ -1,0 +1,50 @@
+{% extends 'cred_base.html'%}
+  {% load static %}
+  {% block content %}
+ <div class="container">
+      <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Application Form</h2>
+          </div>
+        </div>
+</div>
+ <div class="container">
+    <form method="post" id="personForm" data-branch-url="{% url 'credentials:ajax_load_branches' %}" novalidate>
+        {% csrf_token %}
+
+         <div>
+             {{form.as_p}}
+             <input type="submit" value="submit">
+         </div>
+
+        <div class="text-right">
+
+
+
+        </div>
+        <div class="error">
+            {{form.errors}}
+        </div>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    $("#id_district").change(function () {
+      var url = $("#personForm").attr("data-branch-url");  // get the url of the `load_branches` view
+      var districtId = $(this).val();
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+        data: {
+          'district_id': districtId       // add the district id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_branches` view function
+
+          $("#id_branch").html(data);
+        }
+      });
+
+    });
+  </script>
+
+  {% endblock %}

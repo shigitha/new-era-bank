@@ -1,0 +1,20 @@
+ {% extends 'cred_base.html'%}
+  {% load static %}
+  {% block content %}
+<div class="container">
+    <div class="vh-50">
+      <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="section-title mb-3">Form Page</h2>
+              <h3><p>Welcome {{user.username}}</p></h3>
+          </div>
+        </div>
+    <div class="container">
+        <div class="text-center">
+        <a href="{% url 'credentials:formpage' %}"    <button type="submit" class="btn btn-info">click here to complete your Application</button></a>
+        </div>
+        </div>
+    </div>
+</div>
+
+ {%endblock%}
