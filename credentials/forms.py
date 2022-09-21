@@ -9,7 +9,8 @@ class Addform(forms.ModelForm):
     creditcard=forms.BooleanField(required = False)
     passbook=forms.BooleanField(required = False)
     mail_id=forms.EmailField()
-    DOB=forms.DateField()
+    DOB=forms.DateField(widget=forms.SelectDateWidget())
+
     class Meta:
         model= Registration
         fields=('name','DOB','gender','phonenumber','mail_id','address1','address2','address3','district','branch','account','debitcard','creditcard','passbook')
